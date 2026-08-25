@@ -1,6 +1,6 @@
 /**
  * ALAN BIJU — EXECUTIVE CEO PORTFOLIO SCRIPT
- * Clean Professional Architecture: Navigation, Audio Player, Clipboard & Form Controls
+ * Clean Architecture: Dynamic Mobile Drawer, ScrollSpy, Floating Actions, Audio Player & Forms
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,64 +9,136 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  initHeaderScroll();
+  initNavigation();
   initMobileMenu();
+  initFloatingPill();
   initPodcastPlayer();
   initContactForm();
   initCopyEmail();
 });
 
-/* ==================== 1. HEADER SCROLL & NAV ACTIVE ==================== */
-function initHeaderScroll() {
+/* ==================== 1. NAVIGATION & SCROLLSPY ==================== */
+function initNavigation() {
   const header = document.getElementById('main-header');
   const navItems = document.querySelectorAll('.nav-item');
+  const mobileItems = document.querySelectorAll('.mobile-item');
   const sections = document.querySelectorAll('section[id]');
+  const floatingPill = document.getElementById('mobile-floating-pill');
 
   window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Header sticky styling
     if (header) {
-      header.classList.toggle('scrolled', window.scrollY > 30);
+      header.classList.toggle('scrolled', scrollY > 20);
     }
 
-    // ScrollSpy
+    // Floating pill visibility on mobile
+    if (floatingPill) {
+      if (scrollY > 320) {
+        floatingPill.classList.add('visible');
+      } else {
+        floatingPill.classList.remove('visible');
+      }
+    }
+
+    // ScrollSpy active state
     let current = '';
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      if (window.scrollY >= sectionTop) {
+      const sectionTop = section.offsetTop - 140;
+      if (scrollY >= sectionTop) {
         current = section.getAttribute('id');
       }
     });
 
-    navItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.getAttribute('href') === `#${current}`) {
-        item.classList.add('active');
-      }
-    });
-  });
+    if (current) {
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+
+      mobileItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('href') === `#${current}`) {
+          item.classList.add('active');
+        }
+      });
+    }
+  }, { passive: true });
 }
 
-/* ==================== 2. MOBILE NAVIGATION ==================== */
+/* ==================== 2. MOBILE NAVIGATION DRAWER ==================== */
 function initMobileMenu() {
-  const btn = document.getElementById('mobile-menu-btn');
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
   const nav = document.getElementById('mobile-nav');
-  const links = document.querySelectorAll('.mobile-item');
+  const backdrop = document.getElementById('mobile-nav-backdrop');
+  const links = document.querySelectorAll('.mobile-item, .mobile-drawer-cta');
 
-  if (!btn || !nav) return;
+  if (!menuBtn || !nav) return;
 
-  btn.addEventListener('click', () => {
-    nav.classList.toggle('open');
+  function openMenu() {
+    nav.classList.add('open');
+    if (backdrop) backdrop.classList.add('open');
+    document.body.classList.add('menu-locked');
+  }
+
+  function closeMenu() {
+    nav.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    document.body.classList.remove('menu-locked');
+  }
+
+  menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (nav.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
   });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeMenu);
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMenu);
+  }
 
   links.forEach(link => {
     link.addEventListener('click', () => {
-      nav.classList.remove('open');
+      closeMenu();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      closeMenu();
+    }
+  });
+}
+
+/* ==================== 3. FLOATING ACTION PILL ==================== */
+function initFloatingPill() {
+  const scrollTopBtn = document.getElementById('floating-scroll-top');
+  if (!scrollTopBtn) return;
+
+  scrollTopBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
   });
 }
 
-/* ==================== 3. PODCAST AUDIO SNIPPET ==================== */
+/* ==================== 4. PODCAST AUDIO SNIPPET ==================== */
 function initPodcastPlayer() {
   const playBtn = document.getElementById('pod-play-btn');
+  const playIcon = document.getElementById('pod-play-icon');
   const progressBar = document.getElementById('pod-bar-progress');
   const timeText = document.getElementById('pod-time-text');
 
@@ -80,6 +152,10 @@ function initPodcastPlayer() {
     playing = !playing;
     if (playing) {
       showToast('Playing AlanPod Space audio snippet...');
+      if (playIcon) {
+        playIcon.setAttribute('data-lucide', 'pause');
+        if (window.lucide) window.lucide.createIcons();
+      }
       timer = setInterval(() => {
         progress += 1;
         if (progress > 100) progress = 0;
@@ -93,11 +169,15 @@ function initPodcastPlayer() {
       }, 400);
     } else {
       clearInterval(timer);
+      if (playIcon) {
+        playIcon.setAttribute('data-lucide', 'play');
+        if (window.lucide) window.lucide.createIcons();
+      }
     }
   });
 }
 
-/* ==================== 4. EXECUTIVE CONTACT FORM ==================== */
+/* ==================== 5. EXECUTIVE CONTACT FORM ==================== */
 function initContactForm() {
   const form = document.getElementById('ceo-inquiry-form');
   const status = document.getElementById('form-status');
@@ -131,7 +211,7 @@ function initContactForm() {
   });
 }
 
-/* ==================== 5. FAST COPY EMAIL ==================== */
+/* ==================== 6. FAST COPY EMAIL ==================== */
 function initCopyEmail() {
   const copyBtn = document.getElementById('copy-email-btn');
   if (!copyBtn) return;
@@ -146,7 +226,7 @@ function initCopyEmail() {
   });
 }
 
-/* ==================== 6. TOAST NOTIFICATION ==================== */
+/* ==================== 7. TOAST NOTIFICATION ==================== */
 function showToast(msg) {
   const toast = document.getElementById('toast');
   if (!toast) return;

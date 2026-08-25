@@ -19,9 +19,17 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.1">
 </head>
 <body>
+
+  <!-- Ambient Luxury Background Lines -->
+  <div class="bg-lines" aria-hidden="true">
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+  </div>
 
   <!-- Executive Top Bar -->
   <div class="top-bar">
@@ -60,28 +68,109 @@
       </nav>
 
       <div class="header-cta-group">
-        <a href="#contact" class="btn btn-gold">
+        <a href="#contact" class="btn btn-gold header-desktop-btn">
           <span>Get in Touch</span>
           <i data-lucide="arrow-right"></i>
         </a>
         <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
-          <i data-lucide="menu"></i>
+          <i data-lucide="menu" class="menu-icon-open"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Navigation Backdrop & Drawer -->
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
   <div class="mobile-nav" id="mobile-nav">
-    <a href="#home" class="mobile-item">Home</a>
-    <a href="#about" class="mobile-item">About Alan</a>
-    <a href="#ventures" class="mobile-item">Enterprises (Aaronbyte &amp; AlanPod)</a>
-    <a href="#experience" class="mobile-item">Professional Experience</a>
-    <a href="#projects" class="mobile-item">Featured Projects (53+)</a>
-    <a href="#skills" class="mobile-item">Technical Skills &amp; Stack</a>
-    <a href="#education" class="mobile-item">Education &amp; Credentials</a>
-    <a href="#achievements" class="mobile-item">Honors &amp; Record</a>
-    <a href="#contact" class="mobile-item">Contact &amp; Advisory</a>
+    <div class="mobile-nav-header">
+      <div class="mobile-brand">
+        <span class="brand-monogram">AB</span>
+        <div class="brand-text">
+          <span class="brand-name">ALAN BIJU</span>
+          <span class="brand-role">FOUNDER &amp; CEO</span>
+        </div>
+      </div>
+      <button class="mobile-close-btn" id="mobile-close-btn" aria-label="Close Menu">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="mobile-links-list">
+      <a href="#home" class="mobile-item active">
+        <div class="m-item-left">
+          <i data-lucide="home"></i>
+          <span>Home</span>
+        </div>
+        <span class="m-item-num">01</span>
+      </a>
+      <a href="#about" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="user"></i>
+          <span>About Alan</span>
+        </div>
+        <span class="m-item-num">02</span>
+      </a>
+      <a href="#ventures" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="briefcase"></i>
+          <span>Enterprises (Aaronbyte &amp; AlanPod)</span>
+        </div>
+        <span class="m-item-num">03</span>
+      </a>
+      <a href="#experience" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="award"></i>
+          <span>Professional Experience</span>
+        </div>
+        <span class="m-item-num">04</span>
+      </a>
+      <a href="#projects" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="layers"></i>
+          <span>Featured Projects (53+)</span>
+        </div>
+        <span class="m-item-num">05</span>
+      </a>
+      <a href="#skills" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="cpu"></i>
+          <span>Technical Skills &amp; Stack</span>
+        </div>
+        <span class="m-item-num">06</span>
+      </a>
+      <a href="#achievements" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="graduation-cap"></i>
+          <span>Education &amp; Honors</span>
+        </div>
+        <span class="m-item-num">07</span>
+      </a>
+      <a href="#media" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="radio"></i>
+          <span>AlanPod Space Media</span>
+        </div>
+        <span class="m-item-num">08</span>
+      </a>
+      <a href="#contact" class="mobile-item">
+        <div class="m-item-left">
+          <i data-lucide="mail"></i>
+          <span>Contact &amp; Strategic Advisory</span>
+        </div>
+        <span class="m-item-num">09</span>
+      </a>
+    </div>
+    <div class="mobile-nav-footer">
+      <a href="#contact" class="btn btn-gold w-full mobile-drawer-cta">
+        <span>Connect with Alan</span>
+        <i data-lucide="arrow-right"></i>
+      </a>
+      <div class="mobile-socials-row">
+        <a href="https://www.linkedin.com/in/alan-biju-34b0aa296" target="_blank" rel="noopener" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+        <a href="https://github.com/Alanbiju255" target="_blank" rel="noopener" aria-label="GitHub"><i data-lucide="github"></i></a>
+        <a href="https://www.instagram.com/aaronbyte_studios" target="_blank" rel="noopener" aria-label="Aaronbyte Studios"><i data-lucide="gamepad-2"></i></a>
+        <a href="https://www.instagram.com/alanpodspaceofficial" target="_blank" rel="noopener" aria-label="AlanPod Space"><i data-lucide="radio"></i></a>
+      </div>
+    </div>
   </div>
 
   <main>
@@ -425,23 +514,7 @@
         </div>
 
         <div class="projects-grid-six">
-          <!-- Project 1: Fort 1670 -->
-          <div class="proj-card">
-            <div class="proj-badge">Game Development · Aaronbyte</div>
-            <h3>Fort 1670: Operation Black Tiger</h3>
-            <p>Interactive 3D action game development project featuring custom player mechanics, tactical missions, dynamic physics, and immersive environmental design.</p>
-            <div class="proj-tech">
-              <span>Unity</span><span>C#</span><span>3D Physics</span><span>Game Design</span>
-            </div>
-            <div class="proj-footer">
-              <a href="https://www.instagram.com/aaronbyte_studios" target="_blank" rel="noopener" class="inno-link">
-                <span>View on Aaronbyte Studios</span>
-                <i data-lucide="external-link"></i>
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 2: Voice Verification System -->
+          <!-- Project 1: Voice Verification System -->
           <div class="proj-card">
             <div class="proj-badge">AI &amp; Biometrics</div>
             <h3>Voice Verification System</h3>
@@ -457,7 +530,7 @@
             </div>
           </div>
 
-          <!-- Project 3: Face Recognition Attendance System -->
+          <!-- Project 2: Face Recognition Attendance System -->
           <div class="proj-card">
             <div class="proj-badge">Computer Vision</div>
             <h3>Face Recognition Attendance System</h3>
@@ -473,7 +546,7 @@
             </div>
           </div>
 
-          <!-- Project 4: SOS Safety App -->
+          <!-- Project 3: SOS Safety App -->
           <div class="proj-card">
             <div class="proj-badge">Mobile Application</div>
             <h3>SOS Safety App</h3>
@@ -489,7 +562,7 @@
             </div>
           </div>
 
-          <!-- Project 5: Alan Network Scanner -->
+          <!-- Project 4: Alan Network Scanner -->
           <div class="proj-card">
             <div class="proj-badge">Cybersecurity Tool</div>
             <h3>Alan Network Scanner</h3>
@@ -505,7 +578,7 @@
             </div>
           </div>
 
-          <!-- Project 6: Nabo Robotic Pet -->
+          <!-- Project 5: Nabo Robotic Pet -->
           <div class="proj-card">
             <div class="proj-badge">Robotics &amp; IoT</div>
             <h3>Nabo Robotic Pet</h3>
@@ -965,10 +1038,21 @@
     </div>
   </footer>
 
+  <!-- Floating Mobile Quick Action Pill -->
+  <div class="mobile-floating-pill" id="mobile-floating-pill">
+    <a href="#contact" class="floating-pill-btn gold">
+      <i data-lucide="mail"></i>
+      <span>Connect</span>
+    </a>
+    <a href="#home" class="floating-pill-btn icon-only" id="floating-scroll-top" aria-label="Back to Top">
+      <i data-lucide="arrow-up"></i>
+    </a>
+  </div>
+
   <!-- Toast Notification -->
   <div id="toast" class="toast-box"></div>
 
   <!-- Main JavaScript File -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.1"></script>
 </body>
 </html>
