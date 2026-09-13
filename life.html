@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Life Story — The Journey of Resilience | Alan Biju</title>
+  <meta name="description" content="The personal life story of Alan Biju — overcoming childhood harassment, isolation, and exploitation to finding salvation in code, running three teams with 15 people, and refusing to ever give up.">
+  <meta name="author" content="Alan Biju">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts: Plus Jakarta Sans, Playfair Display & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Base Styling System -->
+  <link rel="stylesheet" href="style.css?v=2.2">
+
+  <style>
+    /* ==========================================================================
+       LIFE STORY EDITORIAL STYLING — LUXURY OBSIDIAN & GOLD MEMOIR
+       ========================================================================== */
+    
+    /* Top Reading Progress Bar */
+    .reading-progress-track {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      z-index: 10000;
+    }
+    .reading-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--gold-gradient);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+      transition: width 0.1s linear;
+    }
+
+    /* Navigation Bar Override for Story */
+    .story-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(7, 10, 18, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 16px 0;
+      transition: all var(--transition);
+    }
+    .story-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .story-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .story-brand-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border-gold);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .story-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Memoir Hero Banner */
+    .memoir-hero {
+      position: relative;
+      padding: 100px 0 60px;
+      overflow: hidden;
+    }
+    .memoir-hero::before {
+      content: '';
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(7, 10, 18, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .memoir-hero-container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .memoir-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(17, 26, 46, 0.9);
+      border: 1px solid var(--border-gold);
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+    }
+    .memoir-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--text-heading);
+      line-height: 1.15;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    .memoir-subtitle {
+      font-size: 1.15rem;
+      color: var(--text-body);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+    .memoir-meta-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 14px 24px;
+      background: rgba(17, 26, 46, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 40px;
+      display: inline-flex;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .memoir-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .memoir-meta-item b {
+      color: var(--text-white);
+    }
+    .memoir-meta-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+    }
+
+    /* Main Editorial Container */
+    .memoir-body {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 40px 24px 120px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Drop Cap for Opening */
+    .lead-paragraph::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem;
+      line-height: 0.85;
+      float: left;
+      margin-right: 14px;
+      margin-top: 4px;
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .story-prose p {
+      font-size: 1.12rem;
+      line-height: 1.95;
+      color: #cbd5e1;
+      margin-bottom: 28px;
+    }
+    .story-prose b {
+      color: var(--text-white);
+      font-weight: 700;
+    }
+
+    /* Chapter Section Styling */
+    .story-chapter {
+      position: relative;
+      padding: 40px 0 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      margin-top: 40px;
+    }
+    .chapter-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .chapter-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      color: var(--text-heading);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    /* Emotional Callout Card */
+    .emotional-quote-box {
+      margin: 40px 0;
+      padding: 32px 36px;
+      background: linear-gradient(145deg, rgba(17, 26, 46, 0.85) 0%, rgba(12, 19, 34, 0.95) 100%);
+      border-left: 4px solid var(--gold-primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .quote-mark-bg {
+      position: absolute;
+      top: 10px;
+      right: 24px;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(212, 175, 55, 0.08);
+      pointer-events: none;
+      user-select: none;
+    }
+    .quote-highlight-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--gold-light);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+    .quote-subtext {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin-bottom: 0 !important;
+    }
+
+    /* Code Sanctuary Visual Box */
+    .code-sanctuary-card {
+      background: #050811;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin: 36px 0;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    }
+    .code-card-header {
+      background: rgba(17, 26, 46, 0.9);
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .code-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .code-file-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+    .code-card-body {
+      padding: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      color: #94a3b8;
+    }
+    .code-kw { color: #f43f5e; }
+    .code-fn { color: #38bdf8; }
+    .code-str { color: #a3e635; }
+    .code-comment { color: #64748b; font-style: italic; }
+    .code-gold { color: var(--gold-light); font-weight: 600; }
+
+    /* Parents Foundation Highlight */
+    .parents-card {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(17, 26, 46, 0.8) 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin: 40px 0;
+      position: relative;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+    .parents-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .parents-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      color: #070a12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: var(--gold-glow);
+    }
+    .parents-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--text-heading);
+      margin-bottom: 2px;
+    }
+
+    /* Friends Tribute Box */
+    .friends-tribute-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 28px 0 36px;
+    }
+    .friend-pill {
+      background: rgba(17, 26, 46, 0.8);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-card);
+    }
+    .friend-pill:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold-light);
+      background: rgba(21, 34, 60, 0.95);
+      box-shadow: 0 10px 24px rgba(212, 175, 55, 0.2);
+    }
+    .friend-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 12px;
+      color: var(--gold-light);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .friend-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-white);
+      margin-bottom: 4px;
+    }
+    .friend-role {
+      font-size: 0.78rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Golden Fire Credo Section */
+    .credo-master-card {
+      background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.25) 0%, rgba(12, 19, 34, 0.95) 75%);
+      border: 2px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      padding: 48px 40px;
+      margin: 50px 0;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(212, 175, 55, 0.2);
+      overflow: hidden;
+    }
+    .credo-flame-icon {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      display: inline-block;
+      animation: flamePulse 2s infinite alternate;
+    }
+    @keyframes flamePulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.4)); }
+      100% { transform: scale(1.15); filter: drop-shadow(0 0 24px rgba(245, 158, 11, 0.8)); }
+    }
+    .credo-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+    .credo-lines {
+      max-width: 660px;
+      margin: 0 auto 30px;
+      font-size: 1.18rem;
+      line-height: 1.85;
+      color: #f1f5f9;
+      font-style: italic;
+    }
+    .credo-lines p {
+      margin-bottom: 12px;
+    }
+    .credo-final-rule {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      font-weight: 800;
+      color: var(--text-white);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 24px 0;
+      padding: 14px 28px;
+      background: rgba(7, 10, 18, 0.8);
+      border: 1px solid var(--border-gold);
+      display: inline-block;
+      border-radius: 40px;
+    }
+    .credo-final-rule span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .credo-badge-proud {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-top: 16px;
+    }
+
+    /* Bottom Action Navigation */
+    .story-footer-nav {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 40px;
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .story-share-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .memoir-hero {
+        padding: 60px 0 40px;
+      }
+      .memoir-title {
+        font-size: 2.2rem;
+      }
+      .memoir-subtitle {
+        font-size: 1rem;
+      }
+      .story-body {
+        padding: 20px 16px 80px;
+      }
+      .story-prose p {
+        font-size: 1.02rem;
+        line-height: 1.8;
+      }
+      .lead-paragraph::first-letter {
+        font-size: 3.5rem;
+      }
+      .emotional-quote-box {
+        padding: 24px 20px;
+      }
+      .quote-highlight-text {
+        font-size: 1.25rem;
+      }
+      .credo-master-card {
+        padding: 32px 20px;
+      }
+      .story-footer-nav {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+      .story-footer-nav .btn {
+        width: 100%;
+      }
+      .story-share-box {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Scroll Reading Progress -->
+  <div class="reading-progress-track">
+    <div class="reading-progress-fill" id="reading-progress"></div>
+  </div>
+
+  <!-- Background Lines -->
+  <div class="bg-lines" aria-hidden="true">
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+    <div class="bg-line"></div>
+  </div>
+
+  <!-- Story Header -->
+  <header class="story-header">
+    <div class="story-header-inner">
+      <a href="index.html" class="story-brand">
+        <span class="brand-monogram">AB</span>
+        <div class="brand-text">
+          <span class="brand-name">ALAN BIJU</span>
+          <span class="brand-role">FOUNDER &amp; CEO</span>
+        </div>
+        <span class="story-brand-badge">Life Story</span>
+      </a>
+
+      <div class="story-nav-actions">
+        <button class="btn btn-secondary" id="share-btn" title="Share This Story" aria-label="Share Story">
+          <i data-lucide="share-2"></i>
+          <span>Share</span>
+        </button>
+        <a href="index.html" class="btn btn-gold">
+          <i data-lucide="arrow-left"></i>
+          <span>Portfolio</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Memoir Hero Section -->
+  <section class="memoir-hero">
+    <div class="memoir-hero-container">
+      <div class="memoir-kicker">
+        <i data-lucide="heart" style="width: 16px; height: 16px; color: #ef4444;"></i>
+        <span>Personal Memoir &amp; Journey</span>
+      </div>
+
+      <h1 class="memoir-title">
+        Broken, Rebuilt &amp; <span class="gold-text">Resilient</span>
+      </h1>
+
+      <p class="memoir-subtitle">
+        The untold journey behind the code — navigating childhood harassment, bitter betrayal, and lonely nights, to discovering programming, building 3 teams with 15 people, and refusing to ever surrender.
+      </p>
+
+      <div class="memoir-meta-bar">
+        <div class="memoir-meta-item">
+          <i data-lucide="user" style="width: 14px; height: 14px; color: var(--gold-primary);"></i>
+          <span>By <b>Alan Biju</b></span>
+        </div>
+        <div class="memoir-meta-dot"></div>
+        <div class="memoir-meta-item">
+          <i data-lucide="clock" style="width: 14px; height: 14px; color: var(--gold-primary);"></i>
+          <span>5 Min Read</span>
+        </div>
+        <div class="memoir-meta-dot"></div>
+        <div class="memoir-meta-item">
+          <i data-lucide="flame" style="width: 14px; height: 14px; color: #f59e0b;"></i>
+          <span>A Story of Survival &amp; Strength</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Story Content -->
+  <main class="memoir-body story-prose">
+
+    <!-- Prologue -->
+    <p class="lead-paragraph">
+      My life hasn’t always been easy. Behind the founder titles, the 53+ delivered software projects, and the national records, there is a quieter, raw truth that shaped who I am today. It is a story not forged in comfort, but sculpted through pain, isolation, and an unrelenting refusal to stay down.
+    </p>
+
+    <!-- Chapter 1 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="shield-alert" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 01 · The Early Years (Grades 4 through 10)</span>
+      </div>
+      <h2 class="chapter-heading">The Burden of Silence &amp; Broken Trust</h2>
+      
+      <p>
+        From a very young age, I faced profound mental and physical struggles. When I was just in 4th grade, I experienced physical harassment. For a young child, the world is supposed to be safe. You expect the adults around you to protect you. But sadly, instead of supporting me, some of the people around me—including teachers who held my trust—chose to support the wrong person.
+      </p>
+
+      <p>
+        The injustice cut deeper than any physical blow. That same painful pattern continued relentlessly through 5th, 6th, 7th, 8th, and even into 10th grade. Year after year, I lived with the agonizing feeling that the truth didn’t matter to the people who were supposed to safeguard me.
+      </p>
+
+      <!-- Emotional Callout 1 -->
+      <div class="emotional-quote-box">
+        <span class="quote-mark-bg">“</span>
+        <p class="quote-highlight-text">
+          "I was completely broken."
+        </p>
+        <p class="quote-subtext">
+          When innocence is met with betrayal, survival becomes the only daily assignment.
+        </p>
+      </div>
+    </article>
+
+    <!-- Chapter 2 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="cloud-rain" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 02 · The Tuition Years (Ages 15 – 17)</span>
+      </div>
+      <h2 class="chapter-heading">Shaken at the Crossroads</h2>
+
+      <p>
+        When I was around 15 to 17 years old, I joined a tuition class, hoping with all my heart that things would finally be different. I thought a new environment with new faces would offer a clean slate and a breath of fresh air.
+      </p>
+
+      <p>
+        Instead, history cruelly repeated itself. There too, I experienced physical and mental harassment from a teacher. The sense of helplessness was suffocating. Once again, I felt like I was falling completely apart, watching the ground crumble beneath my feet.
+      </p>
+    </article>
+
+    <!-- Chapter 3 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="terminal" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 03 · The Turning Point (10th Grade)</span>
+      </div>
+      <h2 class="chapter-heading">The Sanctuary of the Screen: Discovering Programming</h2>
+
+      <p>
+        Then, in 10th grade, a quiet transformation began. <b>I discovered computer programming.</b>
+      </p>
+
+      <p>
+        I started spending more and more time in front of computer monitors. In a world full of arbitrary judgments, cruel gossip, and broken promises, the machine offered something radical: <b>purity and fairness</b>.
+      </p>
+
+      <!-- Code Card Visual -->
+      <div class="code-sanctuary-card">
+        <div class="code-card-header">
+          <div class="code-dots">
+            <span class="code-dot dot-red"></span>
+            <span class="code-dot dot-yellow"></span>
+            <span class="code-dot dot-green"></span>
+          </div>
+          <span class="code-file-title">sanctuary.py — Alan's First Real Refuge</span>
+          <i data-lucide="cpu" style="width: 14px; height: 14px; color: var(--gold-primary);"></i>
+        </div>
+        <div class="code-card-body">
+          <span class="code-comment"># The one place where truth was absolute</span><br>
+          <span class="code-kw">class</span> <span class="code-fn">Sanctuary</span>:<br>
+          &nbsp;&nbsp;<span class="code-kw">def</span> <span class="code-fn">__init__</span>(self):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;self.judgment = <span class="code-str">None</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;self.blame = <span class="code-str">None</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;self.voice = <span class="code-gold">"Uncensored &amp; Free"</span><br><br>
+          &nbsp;&nbsp;<span class="code-kw">def</span> <span class="code-fn">build</span>(self, dreams):<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-kw">return</span> dreams.compile_into_reality()
+        </div>
+      </div>
+
+      <p>
+        The one thing I felt could never judge me, blame me, or hurt me was a computer. A compiler didn't care about the rumors. An algorithm didn't bully me. If my syntax was correct, the machine obeyed with unwavering honesty. It became my personal sanctuary—a sacred space where I could learn, create, and express myself without fear.
+      </p>
+    </article>
+
+    <!-- Chapter 4 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="compass" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 04 · The Solitary Years (+2 High School)</span>
+      </div>
+      <h2 class="chapter-heading">Sitting Alone in the Shadows</h2>
+
+      <p>
+        During my +2 years, I often sat alone. I had very few friends, but somehow, day after day, I learned to live with the silence.
+      </p>
+
+      <p>
+        All those past experiences had carved deep, bleeding wounds into my mind. There were heavy, dark nights when I stared at the ceiling and truly believed that my entire existence was a waste—that maybe I was fundamentally unsuited for this world.
+      </p>
+
+      <div class="emotional-quote-box" style="border-left-color: #38bdf8;">
+        <span class="quote-mark-bg">“</span>
+        <p class="quote-highlight-text" style="color: #e2e8f0;">
+          "But I didn’t give up."
+        </p>
+        <p class="quote-subtext">
+          Deep within the ashes, an unspoken stubbornness kept burning.
+        </p>
+      </div>
+    </article>
+
+    <!-- Chapter 5 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="briefcase" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 05 · College Battles &amp; Early Exploitation</span>
+      </div>
+      <h2 class="chapter-heading">Tested by the Working World</h2>
+
+      <p>
+        When I stepped into college, I didn't wait around for permission. I immediately began doing freelance and part-time work, crafting web development projects and tackling every piece of engineering technology I could get my hands on. I held big dreams of becoming successful, of proving that my mind had value.
+      </p>
+
+      <p>
+        Eventually, I joined an external team. But unfortunately, they chose to exploit my hunger and skill. I poured hours into complex systems, only to receive little or no payment. I was treated poorly, spoken down to, and even blamed for catastrophic issues I had no part in creating. I was treated like a toy—used when convenient, and tossed aside without a second thought.
+      </p>
+
+      <p>
+        Once again, I found myself pushed down to the dirt.
+      </p>
+    </article>
+
+    <!-- Chapter 6 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="anchor" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 06 · The Unshakable Foundation</span>
+      </div>
+      <h2 class="chapter-heading">The Unconditional Love of My Parents</h2>
+
+      <p>
+        Every time I was broken before, I had felt utterly alone. <b>But this time, I had something different—people who genuinely believed in me.</b>
+      </p>
+
+      <!-- Parents Card -->
+      <div class="parents-card">
+        <div class="parents-header">
+          <div class="parents-icon">
+            <i data-lucide="shield-check"></i>
+          </div>
+          <div>
+            <h3>My Mother &amp; Father</h3>
+            <span style="font-size: 0.85rem; color: var(--gold-light); font-weight: 600;">The Unsung Heroes of My Life</span>
+          </div>
+        </div>
+        <p style="font-size: 1.05rem; line-height: 1.8; color: #f8fafc; margin-bottom: 0;">
+          When everyone else doubted, exploited, or turned away, my mother and father stood unwavering beside me. They sheltered me through the emotional storms, listened when I had no words, and believed in my capabilities when the world was blind to them. Their support gave me the bedrock strength to stand up, dust myself off, and build something purely my own.
+        </p>
+      </div>
+    </article>
+
+    <!-- Chapter 7 -->
+    <article class="story-chapter">
+      <div class="chapter-tag">
+        <i data-lucide="crown" style="width: 14px; height: 14px;"></i>
+        <span>Chapter 07 · Where I Stand Today</span>
+      </div>
+      <h2 class="chapter-heading">3 Teams, 15 People &amp; A Tribe of True Believers</h2>
+
+      <p>
+        Today, I am proud to say that I run <b>three teams with around 15 talented, dedicated people working right beside me</b> across <b>Aaronbyte Studios</b> and <b>AlanPod Space</b>.
+      </p>
+
+      <p>
+        I have achieved things that the broken 10th grader in the back row once thought were impossible. I've had the honor to connect with celebrated figures, made genuine friends from completely diverse walks of life—including brave individuals serving in the Indian Army—and encountered so many extraordinary mentors and peers who champion our mission.
+      </p>
+
+      <p>
+        And I know, with all my heart, that <b>I did not reach this summit alone.</b>
+      </p>
+
+      <!-- Tribute to Friends -->
+      <div style="margin: 32px 0 16px;">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold-light); margin-bottom: 8px;">
+          To My Closest Circle: My Deepest Gratitude
+        </h3>
+        <p style="font-size: 0.98rem; color: var(--text-muted); margin-bottom: 20px;">
+          The companions who stood by me in the dark when I couldn't even see the light in myself:
+        </p>
+
+        <div class="friends-tribute-grid">
+          <div class="friend-pill">
+            <div class="friend-avatar">M</div>
+            <div class="friend-name">Musfi</div>
+            <span class="friend-role">Loyal Companion</span>
+          </div>
+          <div class="friend-pill">
+            <div class="friend-avatar">S</div>
+            <div class="friend-name">Sameej</div>
+            <span class="friend-role">Steadfast Brother</span>
+          </div>
+          <div class="friend-pill">
+            <div class="friend-avatar">N</div>
+            <div class="friend-name">Nintn</div>
+            <span class="friend-role">True Supporter</span>
+          </div>
+          <div class="friend-pill">
+            <div class="friend-avatar">A</div>
+            <div class="friend-name">Alpha</div>
+            <span class="friend-role">Comrade in Arms</span>
+          </div>
+        </div>
+
+        <p style="font-size: 1.05rem; font-style: italic; color: #cbd5e1; text-align: center;">
+          "Thank you for standing beside me, supporting me, and believing in me when I didn’t believe in myself."
+        </p>
+      </div>
+
+      <p>
+        I’m still learning every day. I’m still growing with every challenge. And I know I still have a very long way to go.
+      </p>
+    </article>
+
+    <!-- Chapter 8: The Golden Credo -->
+    <section class="credo-master-card">
+      <div class="credo-flame-icon">❤️🔥</div>
+      <h2 class="credo-heading">A Message to Anyone Walking Through the Dark</h2>
+      
+      <div class="credo-lines">
+        <p>Sometimes you will fail.</p>
+        <p>Sometimes life will break you.</p>
+        <p>Sometimes people will use you, hurt you, and make you feel worthless.</p>
+        <p>You may lose yourself for a while.</p>
+      </div>
+
+      <div class="credo-final-rule">
+        <span>BUT NEVER GIVE UP.</span>
+      </div>
+
+      <p style="font-size: 1.15rem; line-height: 1.8; color: #e2e8f0; max-width: 600px; margin: 0 auto 20px;">
+        Your current situation is <b>not the end of your story</b>.<br>
+        Keep moving. Keep learning. Keep believing.
+      </p>
+
+      <p style="font-size: 1.25rem; font-family: 'Playfair Display', serif; color: var(--gold-light); font-weight: 700; line-height: 1.6; max-width: 680px; margin: 0 auto 24px;">
+        "One day, all the pain you survived will become part of the strength that makes you who you are."
+      </p>
+
+      <div class="credo-badge-proud">
+        <i data-lucide="check-circle" style="color: var(--gold-primary);"></i>
+        <span>I’m proud that I kept going.</span>
+      </div>
+    </section>
+
+    <!-- Footer Navigation & Actions -->
+    <div class="story-footer-nav">
+      <a href="index.html" class="btn btn-gold">
+        <i data-lucide="arrow-left"></i>
+        <span>Return to Executive Portfolio</span>
+      </a>
+
+      <div class="story-share-box">
+        <button class="btn btn-secondary" id="bottom-share-btn">
+          <i data-lucide="share-2"></i>
+          <span>Share This Story</span>
+        </button>
+        <a href="mailto:alanbiju255@gmail.com" class="btn btn-icon" title="Email Alan">
+          <i data-lucide="mail"></i>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="toast-box"></div>
+
+  <!-- Interactive Script for Reading Progress & Share -->
+  <script>
+    // 1. Initialize Lucide Icons
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    // 2. Reading Progress Indicator
+    const progressFill = document.getElementById('reading-progress');
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      if (progressFill) {
+        progressFill.style.width = Math.min(scrolled, 100) + '%';
+      }
+    }, { passive: true });
+
+    // 3. Clean URL Handling (displays /life-story seamlessly in browser address bar)
+    try {
+      if (window.location.protocol.startsWith('http')) {
+        const path = window.location.pathname;
+        if (path.endsWith('life.html') || path.endsWith('life')) {
+          const newUrl = path.replace(/life(\.html)?$/, 'life-story');
+          window.history.replaceState(null, 'My Life Story — Alan Biju', newUrl);
+        }
+      }
+    } catch (e) {
+      // Graceful fallback
+    }
+
+    // 4. Native Web Share API & Clipboard Copy
+    const shareButtons = [document.getElementById('share-btn'), document.getElementById('bottom-share-btn')];
+    shareButtons.forEach(btn => {
+      if (!btn) return;
+      btn.addEventListener('click', async () => {
+        const shareData = {
+          title: 'My Life Story — Alan Biju',
+          text: 'From surviving childhood harassment and finding solace in code, to leading three teams and empowering creators: My Life Story by Alan Biju.',
+          url: window.location.href
+        };
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+          } catch (err) {
+            // User cancelled share
+          }
+        } else {
+          // Fallback to copying URL
+          navigator.clipboard.writeText(window.location.href).then(() => {
+            showToast('Story link copied to clipboard! ❤️🔥');
+          }).catch(() => {
+            showToast('Link copied!');
+          });
+        }
+      });
+    });
+
+    // 5. Toast notification helper
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

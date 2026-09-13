@@ -1995,6 +1995,13 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid var(--border-gold);
+    color: var(--gold-light);
+    cursor: pointer;
   }
 
   .main-header {
@@ -2025,8 +2032,8 @@ p {
   }
 
   .top-bar {
-    padding: 6px 18px;
-    font-size: 0.75rem;
+    padding: 6px 16px;
+    font-size: 0.72rem;
   }
 
   .top-left {
@@ -2038,59 +2045,66 @@ p {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 0.74rem;
+    font-size: 0.72rem;
   }
 
   /* Floating mobile pill */
   .mobile-floating-pill {
     display: flex;
+    bottom: 20px;
+    right: 18px;
+    z-index: 90;
   }
 
   /* Hero Section */
   .hero-section {
-    padding: 40px 18px 60px;
+    padding: 36px 16px 50px;
   }
 
   .hero-container {
-    gap: 36px;
+    gap: 32px;
   }
 
   .ceo-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 14px;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
   .gold-line {
-    width: 20px;
+    width: 18px;
+    height: 2px;
   }
 
   .hero-heading {
-    font-size: 2.1rem;
-    line-height: 1.2;
-    margin-bottom: 18px;
+    font-size: 2rem;
+    line-height: 1.22;
+    margin-bottom: 16px;
   }
 
   .hero-subtext {
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     line-height: 1.7;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .hero-quote-card {
     padding: 14px 16px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     border-radius: var(--radius-sm);
   }
 
   .quote-text {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     line-height: 1.55;
     margin-bottom: 6px;
   }
 
   .quote-sig {
-    font-size: 0.76rem;
+    font-size: 0.75rem;
   }
 
   .hero-actions {
@@ -2099,7 +2113,7 @@ p {
     width: 100%;
     gap: 10px;
     flex-wrap: wrap;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .hero-actions .btn-gold {
@@ -2119,7 +2133,7 @@ p {
     height: 46px;
   }
 
-  /* Sunil-Style 2x2 Stats Grid */
+  /* 2x2 Stats Grid */
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2146,7 +2160,7 @@ p {
   }
 
   .stat-num {
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     color: var(--gold-light);
     font-weight: 700;
   }
@@ -2160,13 +2174,13 @@ p {
   /* Portrait */
   .hero-right {
     width: 100%;
-    max-width: 360px;
+    max-width: 340px;
     margin: 0 auto;
   }
 
   .portrait-frame {
     max-width: 100%;
-    padding: 12px;
+    padding: 10px;
   }
 
   .cap-name {
@@ -2188,15 +2202,15 @@ p {
 
   /* Common Sections */
   .section {
-    padding: 60px 18px;
+    padding: 50px 16px;
   }
 
   .section-title-wrap {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
   }
 
   .section-title {
-    font-size: 1.85rem;
+    font-size: 1.8rem;
     line-height: 1.25;
   }
 
@@ -2207,18 +2221,18 @@ p {
 
   /* About & Pillars */
   .about-lead {
-    font-size: 1.15rem;
+    font-size: 1.12rem;
     line-height: 1.55;
     margin-bottom: 16px;
   }
 
   .about-text-column p {
-    font-size: 0.94rem;
+    font-size: 0.92rem;
     line-height: 1.75;
   }
 
   .about-values {
-    margin-top: 24px;
+    margin-top: 22px;
     gap: 14px;
   }
 
@@ -2585,11 +2599,11 @@ p {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 16px;
+    padding: 0 14px;
   }
 
   .hero-heading {
-    font-size: 1.85rem;
+    font-size: 1.8rem;
   }
 
   .hero-actions .btn-secondary {
@@ -2597,7 +2611,7 @@ p {
   }
 
   .stat-num {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
   }
 
   .channels-grid {
@@ -2605,6 +2619,101 @@ p {
   }
 
   .mobile-nav {
-    width: 92vw;
+    width: 90vw;
+    max-width: 320px;
   }
 }
+
+/* ==================== LIFE STORY LINK ACCENTS ==================== */
+.nav-story-link {
+  color: var(--gold-light) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+.nav-story-link i {
+  width: 14px;
+  height: 14px;
+  color: var(--gold-primary);
+}
+
+.btn-story {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(17, 26, 46, 0.85) 100%);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+}
+.btn-story:hover {
+  background: var(--gold-gradient);
+  color: #070a12;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+}
+
+.mobile-story-item {
+  background: rgba(212, 175, 55, 0.08) !important;
+  border-color: var(--border-gold) !important;
+}
+.mobile-story-item .m-item-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--gold-gradient);
+  color: #070a12;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.about-story-banner {
+  grid-column: 1 / -1;
+  margin-top: 36px;
+  background: linear-gradient(135deg, rgba(17, 26, 46, 0.95) 0%, rgba(12, 19, 34, 0.98) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 30px 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+.story-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+  padding: 2px 10px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.about-story-banner h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+.about-story-banner p {
+  color: var(--text-body);
+  font-size: 0.92rem;
+  margin-bottom: 0;
+  max-width: 680px;
+}
+@media (max-width: 768px) {
+  .about-story-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+  }
+  .story-banner-btn {
+    width: 100%;
+  }
+}
+

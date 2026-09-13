@@ -177,6 +177,7 @@ function initPodcastPlayer() {
   });
 }
 
+
 /* ==================== 5. EXECUTIVE CONTACT FORM ==================== */
 function initContactForm() {
   const form = document.getElementById('ceo-inquiry-form');
@@ -211,7 +212,7 @@ function initContactForm() {
   });
 }
 
-/* ==================== 6. FAST COPY EMAIL ==================== */
+/* ==================== 7. FAST COPY EMAIL ==================== */
 function initCopyEmail() {
   const copyBtn = document.getElementById('copy-email-btn');
   if (!copyBtn) return;
@@ -226,7 +227,7 @@ function initCopyEmail() {
   });
 }
 
-/* ==================== 7. TOAST NOTIFICATION ==================== */
+/* ==================== 8. TOAST NOTIFICATION ==================== */
 function showToast(msg) {
   const toast = document.getElementById('toast');
   if (!toast) return;
@@ -238,3 +239,4 @@ function showToast(msg) {
     toast.style.display = 'none';
   }, 3500);
 }
+
