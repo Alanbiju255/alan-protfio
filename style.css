@@ -1056,6 +1056,55 @@ p {
   border-top: 1px solid var(--border-subtle);
 }
 
+.venture-network {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 22px 26px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.venture-network-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.venture-network-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.venture-network a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  color: var(--gold-primary);
+  text-decoration: none;
+}
+
+.venture-network a:hover {
+  color: var(--gold-light);
+}
+
+.venture-network a svg {
+  width: 14px;
+  height: 14px;
+}
+
+.venture-network-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+}
+
 /* ==================== EXPERIENCE SECTION ==================== */
 .experience-timeline {
   display: flex;
